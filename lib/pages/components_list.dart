@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hardshopapp/components/Background.dart';
 
 class ComponentList extends StatefulWidget {
-  const ComponentList({ Key? key }) : super(key: key);
+  const ComponentList({Key? key}) : super(key: key);
 
   @override
   _ComponentListState createState() => _ComponentListState();
@@ -11,8 +11,22 @@ class ComponentList extends StatefulWidget {
 class _ComponentListState extends State<ComponentList> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      body: Center(
+        child: Background(
+          child: Column(
+            children: const [
+              Text(
+                "Component List",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20.0,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

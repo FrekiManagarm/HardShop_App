@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:hardshopapp/pages/components_list.dart';
+import 'package:hardshopapp/pages/dashboard/dashboard.dart';
 import 'package:hardshopapp/pages/home_screen.dart';
 
 void main() {
@@ -11,13 +14,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'HardShop',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      initialRoute: '/',
+      getPages: [
+        GetPage(name: '/', page: () => const HomeScreen()),
+        GetPage(name: '/components', page: () => const ComponentList()),
+        GetPage(name: '/dashboard', page: () => const Dashboard()),
+        
+      ],
     );
   }
 }
