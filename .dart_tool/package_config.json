@@ -212,6 +212,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "liquid_pull_to_refresh",
+      "rootUri": "file:///Users/mathieuchambaud/.pub-cache/hosted/pub.dartlang.org/liquid_pull_to_refresh-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "lottie",
       "rootUri": "file:///Users/mathieuchambaud/.pub-cache/hosted/pub.dartlang.org/lottie-1.2.2",
       "packageUri": "lib/",
@@ -518,7 +524,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-02-21T15:42:37.289415Z",
+  "generated": "2022-02-22T13:46:19.081045Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

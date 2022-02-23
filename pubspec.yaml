@@ -51,6 +51,7 @@ dependencies:
   delayed_display: ^2.0.0
   hidden_drawer_menu: ^3.0.1
   circular_menu: ^1.2.3
+  liquid_pull_to_refresh: ^3.0.1
 
 dev_dependencies:
   flutter_test:

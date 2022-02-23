@@ -23,6 +23,7 @@ class _ComponentListState extends State<ComponentList> {
                   fontSize: 20.0,
                 ),
               ),
+              
             ],
           ),
         ),

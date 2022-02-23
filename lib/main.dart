@@ -19,13 +19,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+      ).copyWith(
+        pageTransitionsTheme: const PageTransitionsTheme(
+          builders: <TargetPlatform, PageTransitionsBuilder>{
+            TargetPlatform.android: ZoomPageTransitionsBuilder()
+          }
+        ),
       ),
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => const HomeScreen()),
         GetPage(name: '/components', page: () => const ComponentList()),
         GetPage(name: '/dashboard', page: () => const Dashboard()),
-        
       ],
     );
   }

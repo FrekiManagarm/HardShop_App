@@ -22,7 +22,7 @@ class _MainControllerState extends State<MainController> {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
         key: bottomNavigationKey,
-        index: 0,
+        index: _page,
         height: 75.0,
         items: const [
           Icon(Icons.home, size: 30),
