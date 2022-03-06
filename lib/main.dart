@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:hardshopapp/controllers/maincontroller.dart';
 import 'package:hardshopapp/pages/components_list.dart';
 import 'package:hardshopapp/pages/dashboard/dashboard.dart';
 import 'package:hardshopapp/pages/home_screen.dart';
@@ -19,16 +20,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-      ).copyWith(
-        pageTransitionsTheme: const PageTransitionsTheme(
-          builders: <TargetPlatform, PageTransitionsBuilder>{
-            TargetPlatform.android: ZoomPageTransitionsBuilder()
-          }
-        ),
       ),
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: () => const HomeScreen()),
+        GetPage(name: '/', page: () => const MainController()),
         GetPage(name: '/components', page: () => const ComponentList()),
         GetPage(name: '/dashboard', page: () => const Dashboard()),
       ],

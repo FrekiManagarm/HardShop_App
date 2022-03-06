@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hardshopapp/pages/components_list.dart';
 import 'package:hardshopapp/pages/configurator/home_config.dart';
 import 'package:hardshopapp/pages/dashboard/dashboard.dart';
+import 'package:hardshopapp/pages/home_screen.dart';
 
 class MainController extends StatefulWidget {
   const MainController({ Key? key }) : super(key: key);
@@ -28,6 +29,7 @@ class _MainControllerState extends State<MainController> {
           Icon(Icons.home, size: 30),
           Icon(Icons.list, size: 30),
           Icon(Icons.compare_arrows, size: 30),
+          Icon(Icons.account_circle_outlined, size: 30),
         ],
         color: Colors.white,
         buttonBackgroundColor: Colors.white,
@@ -42,11 +44,13 @@ class _MainControllerState extends State<MainController> {
         letIndexChange: (index) => true,
       ),
       body: _page == 0 ? 
-        const ComponentList()
+        const HomeScreen()
       : _page == 1 ? 
-        const Dashboard()
+        const ComponentList()
       : _page == 2 ? 
         const HomeConfigurator()
+      : _page == 3 ? 
+        const Dashboard()
       : null
     );
   }

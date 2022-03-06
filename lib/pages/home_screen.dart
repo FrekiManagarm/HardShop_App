@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hardshopapp/controllers/maincontroller.dart';
+import 'package:hardshopapp/components/avatar_container.dart';
+import 'package:hardshopapp/components/background.dart';
+import 'package:hardshopapp/container/home_screen_container.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,6 +14,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const MainController();
+    return Scaffold(
+      body: Center(
+        child: Background(
+          child: Column(
+            children: const [
+              HomeScreenContainer(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
