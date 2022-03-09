@@ -11,16 +11,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool _isCheck = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Background(
-          child: Column(
-            children: const [
-              HomeScreenContainer(),
-            ],
+      body: SafeArea(
+        child: Center(
+          child: Background(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(Icons.adaptive.arrow_forward_outlined),
+                ),
+                Switch.adaptive(
+                    value: _isCheck,
+                    onChanged: (bool newValue) {
+                      setState(() {
+                        _isCheck = newValue;
+                      });
+                    })
+              ],
+            ),
           ),
         ),
       ),
