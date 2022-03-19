@@ -24,10 +24,10 @@ class AvatarContainer extends StatelessWidget {
       child: Row(
         children: [
           MaterialButton(
-              child: Image.network(avatarUrl),
-              onPressed: () {
-                Get.toNamed('/settings');
-              })
+            child: Image.network(avatarUrl),
+            onPressed: () {
+              Get.toNamed('/settings');
+            })
         ],
       ),
     );

@@ -12,7 +12,7 @@ class _HomeScreenContainerState extends State<HomeScreenContainer> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        child: Icon(Icons.adaptive.arrow_forward_outlined),
+        
       ),
     );
   }
