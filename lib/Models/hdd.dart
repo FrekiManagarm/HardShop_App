@@ -1,37 +1,21 @@
 // To parse this JSON data, do
 //
-//     final ram = ramFromJson(jsonString);
+//     final hdd = hddFromJson(jsonString);
 
 import 'dart:convert';
 
-HDD ramFromJson(String str) => HDD.fromJson(json.decode(str));
+List<Hdd> hddFromJson(String str) => List<Hdd>.from(json.decode(str).map((x) => Hdd.fromJson(x)));
 
-String ramToJson(HDD data) => json.encode(data.toJson());
+String hddToJson(List<Hdd> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class HDD {
-    HDD({
-        required this.data,
-    });
-
-    List<Datum> data;
-
-    factory HDD.fromJson(Map<String, dynamic> json) => HDD(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    Datum({
+class Hdd {
+    Hdd({
         this.id,
         this.image,
         this.rpm,
         this.capacit,
         this.format,
-        this.datumInterface,
+        this.hddInterface,
         this.description,
         this.marque,
         this.mmoireCache,
@@ -44,20 +28,20 @@ class Datum {
     int? rpm;
     int? capacit;
     String? format;
-    String? datumInterface;
+    String? hddInterface;
     String? description;
     String? marque;
     int? mmoireCache;
     String? nom;
     String? transfert;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory Hdd.fromJson(Map<String, dynamic> json) => Hdd(
         id: json["id"],
         image: json["image"],
         rpm: json["RPM"],
         capacit: json["capacité"],
         format: json["format"],
-        datumInterface: json["interface"],
+        hddInterface: json["interface"],
         description: json["description"],
         marque: json["marque"],
         mmoireCache: json["mémoire_cache"],
@@ -71,7 +55,7 @@ class Datum {
         "RPM": rpm,
         "capacité": capacit,
         "format": format,
-        "interface": datumInterface,
+        "interface": hddInterface,
         "description": description,
         "marque": marque,
         "mémoire_cache": mmoireCache,
@@ -79,3 +63,4 @@ class Datum {
         "transfert": transfert,
     };
 }
+

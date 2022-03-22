@@ -1,31 +1,15 @@
 // To parse this JSON data, do
 //
-//     final ram = ramFromJson(jsonString);
+//     final motherBoard = motherBoardFromJson(jsonString);
 
 import 'dart:convert';
 
-MotherBoard ramFromJson(String str) => MotherBoard.fromJson(json.decode(str));
+List<MotherBoard> motherBoardFromJson(String str) => List<MotherBoard>.from(json.decode(str).map((x) => MotherBoard.fromJson(x)));
 
-String ramToJson(MotherBoard data) => json.encode(data.toJson());
+String motherBoardToJson(List<MotherBoard> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class MotherBoard {
     MotherBoard({
-        required this.data,
-    });
-
-    List<Datum> data;
-
-    factory MotherBoard.fromJson(Map<String, dynamic> json) => MotherBoard(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    Datum({
         this.id,
         this.image,
         this.constructeur,
@@ -47,7 +31,7 @@ class Datum {
     String? procoCompatible;
     String? socket;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory MotherBoard.fromJson(Map<String, dynamic> json) => MotherBoard(
         id: json["id"],
         image: json["image"],
         constructeur: json["constructeur"],
@@ -71,5 +55,6 @@ class Datum {
         "socket": socket,
     };
 }
+
 
 

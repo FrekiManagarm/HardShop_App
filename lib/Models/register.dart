@@ -1,15 +1,15 @@
 // To parse this JSON data, do
 //
-//     final boitier = boitierFromJson(jsonString);
+//     final register = registerFromJson(jsonString);
 
 import 'dart:convert';
 
-Boitier boitierFromJson(String str) => Boitier.fromJson(json.decode(str));
+Register registerFromJson(String str) => Register.fromJson(json.decode(str));
 
-String boitierToJson(Boitier data) => json.encode(data.toJson());
+String registerToJson(Register data) => json.encode(data.toJson());
 
-class Boitier {
-    Boitier({
+class Register {
+    Register({
         this.user,
         this.token,
     });
@@ -17,13 +17,13 @@ class Boitier {
     User? user;
     String? token;
 
-    factory Boitier.fromJson(Map<String, dynamic> json) => Boitier(
+    factory Register.fromJson(Map<String, dynamic> json) => Register(
         user: User.fromJson(json["user"]),
         token: json["token"],
     );
 
     Map<String, dynamic> toJson() => {
-        "user": user?.toJson(),
+        "user": user!.toJson(),
         "token": token,
     };
 }
@@ -63,3 +63,4 @@ class User {
         "avatar_url": avatarUrl,
     };
 }
+

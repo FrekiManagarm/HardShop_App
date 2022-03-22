@@ -4,28 +4,12 @@
 
 import 'dart:convert';
 
-Boitier boitierFromJson(String str) => Boitier.fromJson(json.decode(str));
+List<Boitier> boitierFromJson(String str) => List<Boitier>.from(json.decode(str).map((x) => Boitier.fromJson(x)));
 
-String boitierToJson(Boitier data) => json.encode(data.toJson());
+String boitierToJson(List<Boitier> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Boitier {
     Boitier({
-        required this.data,
-    });
-
-    List<Datum> data;
-
-    factory Boitier.fromJson(Map<String, dynamic> json) => Boitier(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    Datum({
         this.id,
         this.image,
         this.rgb,
@@ -49,7 +33,7 @@ class Datum {
     String? nom;
     int? ventilateur;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory Boitier.fromJson(Map<String, dynamic> json) => Boitier(
         id: json["id"],
         image: json["image"],
         rgb: json["RGB"],
@@ -75,3 +59,4 @@ class Datum {
         "ventilateur": ventilateur,
     };
 }
+

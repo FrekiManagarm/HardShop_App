@@ -4,28 +4,12 @@
 
 import 'dart:convert';
 
-Cooling coolingFromJson(String str) => Cooling.fromJson(json.decode(str));
+List<Cooling> coolingFromJson(String str) => List<Cooling>.from(json.decode(str).map((x) => Cooling.fromJson(x)));
 
-String coolingToJson(Cooling data) => json.encode(data.toJson());
+String coolingToJson(List<Cooling> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Cooling {
     Cooling({
-        required this.data,
-    });
-
-    List<Datum> data;
-
-    factory Cooling.fromJson(Map<String, dynamic> json) => Cooling(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    Datum({
         this.id,
         this.bruit,
         this.format,
@@ -49,7 +33,7 @@ class Datum {
     String? type;
     String? image;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory Cooling.fromJson(Map<String, dynamic> json) => Cooling(
         id: json["id"],
         bruit: json["bruit"],
         format: json["format"],

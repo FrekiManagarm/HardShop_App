@@ -4,62 +4,46 @@
 
 import 'dart:convert';
 
-Cpu cpuFromJson(String str) => Cpu.fromJson(json.decode(str));
+List<Cpu> cpuFromJson(String str) => List<Cpu>.from(json.decode(str).map((x) => Cpu.fromJson(x)));
 
-String cpuToJson(Cpu data) => json.encode(data.toJson());
+String cpuToJson(List<Cpu> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Cpu {
     Cpu({
-        required this.data,
+        required this.id,
+        required this.nom,
+        required this.image,
+        required this.architecture,
+        required this.cache,
+        required this.chipset,
+        required this.chipsetGraphique,
+        required this.frequence,
+        required this.frequenceBoost,
+        required this.nbCoeur,
+        required this.nbThreads,
+        required this.description,
+        required this.overclocking,
+        required this.socket,
+        required this.type,
     });
 
-    List<Datum> data;
+    int id;
+    String nom;
+    String image;
+    String architecture;
+    String cache;
+    String chipset;
+    String chipsetGraphique;
+    String frequence;
+    String frequenceBoost;
+    int nbCoeur;
+    int nbThreads;
+    String description;
+    int overclocking;
+    String socket;
+    String type;
 
     factory Cpu.fromJson(Map<String, dynamic> json) => Cpu(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    Datum({
-        this.id,
-        this.nom,
-        this.image,
-        this.architecture,
-        this.cache,
-        this.chipset,
-        this.chipsetGraphique,
-        this.frequence,
-        this.frequenceBoost,
-        this.nbCoeur,
-        this.nbThreads,
-        this.description,
-        this.overclocking,
-        this.socket,
-        this.type,
-    });
-
-    int? id;
-    String? nom;
-    String? image;
-    String? architecture;
-    String? cache;
-    String? chipset;
-    String? chipsetGraphique;
-    String? frequence;
-    String? frequenceBoost;
-    int? nbCoeur;
-    int? nbThreads;
-    String? description;
-    int? overclocking;
-    String? socket;
-    String? type;
-
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
         nom: json["nom"],
         image: json["image"],
@@ -95,3 +79,4 @@ class Datum {
         "type": type,
     };
 }
+

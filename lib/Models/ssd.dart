@@ -1,37 +1,21 @@
 // To parse this JSON data, do
 //
-//     final ram = ramFromJson(jsonString);
+//     final ssd = ssdFromJson(jsonString);
 
 import 'dart:convert';
 
-SSD ramFromJson(String str) => SSD.fromJson(json.decode(str));
+List<Ssd> ssdFromJson(String str) => List<Ssd>.from(json.decode(str).map((x) => Ssd.fromJson(x)));
 
-String ramToJson(SSD data) => json.encode(data.toJson());
+String ssdToJson(List<Ssd> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class SSD {
-    SSD({
-        required this.data,
-    });
-
-    List<Datum> data;
-
-    factory SSD.fromJson(Map<String, dynamic> json) => SSD(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    Datum({
+class Ssd {
+    Ssd({
         this.id,
         this.image,
         this.capacit,
         this.connectique,
         this.format,
-        this.datumInterface,
+        this.ssdInterface,
         this.lecture,
         this.ecriture,
         this.description,
@@ -44,20 +28,20 @@ class Datum {
     int? capacit;
     String? connectique;
     String? format;
-    String? datumInterface;
+    String? ssdInterface;
     int? lecture;
     int? ecriture;
     String? description;
     String? marque;
     String? nom;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory Ssd.fromJson(Map<String, dynamic> json) => Ssd(
         id: json["id"],
         image: json["image"],
         capacit: json["capacité"],
         connectique: json["connectique"],
         format: json["format"],
-        datumInterface: json["interface"],
+        ssdInterface: json["interface"],
         lecture: json["lecture"],
         ecriture: json["ecriture"],
         description: json["description"],
@@ -71,7 +55,7 @@ class Datum {
         "capacité": capacit,
         "connectique": connectique,
         "format": format,
-        "interface": datumInterface,
+        "interface": ssdInterface,
         "lecture": lecture,
         "ecriture": ecriture,
         "description": description,
@@ -79,5 +63,6 @@ class Datum {
         "nom": nom,
     };
 }
+
 
 

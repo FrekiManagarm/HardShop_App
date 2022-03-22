@@ -4,32 +4,16 @@
 
 import 'dart:convert';
 
-Ram ramFromJson(String str) => Ram.fromJson(json.decode(str));
+List<Ram> ramFromJson(String str) => List<Ram>.from(json.decode(str).map((x) => Ram.fromJson(x)));
 
-String ramToJson(Ram data) => json.encode(data.toJson());
+String ramToJson(List<Ram> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Ram {
     Ram({
-        required this.data,
-    });
-
-    List<Datum> data;
-
-    factory Ram.fromJson(Map<String, dynamic> json) => Ram(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    Datum({
         this.id,
         this.image,
         this.capacit,
-        this.datumInterface,
+        this.ramInterface,
         this.latence,
         this.description,
         this.nom,
@@ -39,17 +23,17 @@ class Datum {
     int? id;
     String? image;
     String? capacit;
-    String? datumInterface;
+    String? ramInterface;
     String? latence;
     String? description;
     String? nom;
     int? quantit;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory Ram.fromJson(Map<String, dynamic> json) => Ram(
         id: json["id"],
         image: json["image"],
         capacit: json["capacité"],
-        datumInterface: json["interface"],
+        ramInterface: json["interface"],
         latence: json["latence"],
         description: json["description"],
         nom: json["nom"],
@@ -60,11 +44,12 @@ class Datum {
         "id": id,
         "image": image,
         "capacité": capacit,
-        "interface": datumInterface,
+        "interface": ramInterface,
         "latence": latence,
         "description": description,
         "nom": nom,
         "quantité": quantit,
     };
 }
+
 

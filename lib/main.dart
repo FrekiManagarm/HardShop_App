@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:hardshopapp/controllers/maincontroller.dart';
 import 'package:hardshopapp/pages/components_list.dart';
+import 'package:hardshopapp/pages/configurator/home_config.dart';
 import 'package:hardshopapp/pages/dashboard/dashboard.dart';
 import 'package:hardshopapp/pages/home_screen.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/', page: () => const MainController()),
         GetPage(name: '/components', page: () => const ComponentList()),
         GetPage(name: '/dashboard', page: () => const Dashboard()),
+        GetPage(name: '/configurator', page: () => const HomeConfigurator()),
       ],
     );
   }

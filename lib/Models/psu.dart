@@ -1,31 +1,15 @@
 // To parse this JSON data, do
 //
-//     final ram = ramFromJson(jsonString);
+//     final psu = psuFromJson(jsonString);
 
 import 'dart:convert';
 
-PSU ramFromJson(String str) => PSU.fromJson(json.decode(str));
+List<Psu> psuFromJson(String str) => List<Psu>.from(json.decode(str).map((x) => Psu.fromJson(x)));
 
-String ramToJson(PSU data) => json.encode(data.toJson());
+String psuToJson(List<Psu> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class PSU {
-    PSU({
-        required this.data,
-    });
-
-    List<Datum> data;
-
-    factory PSU.fromJson(Map<String, dynamic> json) => PSU(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    Datum({
+class Psu {
+    Psu({
         this.id,
         this.image,
         this.certif,
@@ -47,7 +31,7 @@ class Datum {
     String? nom;
     int? puissance;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory Psu.fromJson(Map<String, dynamic> json) => Psu(
         id: json["id"],
         image: json["image"],
         certif: json["certif"],
@@ -71,3 +55,4 @@ class Datum {
         "puissance": puissance,
     };
 }
+

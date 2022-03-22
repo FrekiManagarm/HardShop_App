@@ -1,31 +1,15 @@
 // To parse this JSON data, do
 //
-//     final gpu = gpuFromJson(jsonString);
+//     final cpu = cpuFromJson(jsonString);
 
 import 'dart:convert';
 
-Gpu gpuFromJson(String str) => Gpu.fromJson(json.decode(str));
+List<Gpu> cpuFromJson(String str) => List<Gpu>.from(json.decode(str).map((x) => Gpu.fromJson(x)));
 
-String gpuToJson(Gpu data) => json.encode(data.toJson());
+String cpuToJson(List<Gpu> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Gpu {
     Gpu({
-        required this.data,
-    });
-
-    List<Datum> data;
-
-    factory Gpu.fromJson(Map<String, dynamic> json) => Gpu(
-        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-    );
-
-    Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-    };
-}
-
-class Datum {
-    Datum({
         this.id,
         this.image,
         this.nom,
@@ -47,7 +31,7 @@ class Datum {
     int? nbVideoOutput;
     String? description;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory Gpu.fromJson(Map<String, dynamic> json) => Gpu(
         id: json["id"],
         image: json["image"],
         nom: json["nom"],
@@ -71,3 +55,4 @@ class Datum {
         "description": description,
     };
 }
+
