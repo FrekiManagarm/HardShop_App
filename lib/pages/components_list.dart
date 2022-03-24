@@ -1,5 +1,7 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:hardshopapp/components/Background.dart';
+import 'package:hardshopapp/container/Details/cpu_details.dart';
 import '../api/network.dart';
 import '../Models/cpu.dart';
 
@@ -37,17 +39,70 @@ class _ComponentListState extends State<ComponentList> {
                     if (snapshot.hasError) {
                       return Text('Error: ${snapshot.error}');
                     } else {
-                      return ListView.builder(
+                      return GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 15,
+                            mainAxisSpacing: 15,
+                          ),
                           itemCount: snapshot.data!.length,
                           itemBuilder: (context, index) {
                             Cpu cpu = snapshot.data![index];
-                            return (
-                              ListTile(
-                                leading: Image.network(cpu.image),
-                                title: Text(cpu.nom),
-                                subtitle: Text(cpu.architecture),
-                              )
-                            );
+                            return (OpenContainer(
+                              closedShape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                              ),
+                              // transitionDuration: const Duration(seconds: 1),
+                              transitionType:
+                                  ContainerTransitionType.fadeThrough,
+                              closedBuilder: (context, action) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Column(
+                                    children: [
+                                      Flexible(
+                                        flex: 1,
+                                        fit: FlexFit.tight,
+                                        child: Image.network(
+                                          cpu.image,
+                                          height: 150.0,
+                                          width: 150.0,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 10.0,
+                                      ),
+                                      Text(
+                                        cpu.nom,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              openBuilder: (context, action) {
+                                return CPUDetails(
+                                  architecture: cpu.architecture,
+                                  cache: cpu.cache,
+                                  frequence: cpu.frequence,
+                                  frequenceBoost: cpu.frequenceBoost,
+                                  image: cpu.image,
+                                  nbCoeur: cpu.nbCoeur,
+                                  nbThreads: cpu.nbThreads,
+                                  nom: cpu.nom,
+                                  overclocking: cpu.overclocking,
+                                  type: cpu.type,
+                                  socket: cpu.socket,
+                                  chipset: cpu.chipset,
+                                  chipsetGraphique: cpu.chipsetGraphique,
+                                  description: cpu.description,
+                                );
+                              },
+                            ));
                           });
                     }
                 }
