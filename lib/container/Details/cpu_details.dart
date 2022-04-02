@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 
-class CPUDetails extends StatefulWidget {
+class CPUDetails extends StatelessWidget {
   const CPUDetails(
       {Key? key,
       required this.architecture,
@@ -36,33 +35,28 @@ class CPUDetails extends StatefulWidget {
   final String type;
 
   @override
-  State<CPUDetails> createState() => _CPUDetailsState();
-}
-
-class _CPUDetailsState extends State<CPUDetails> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: MaterialButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                color: Colors.amber,
-                elevation: 16.0,
-                shape: const CircleBorder(),
-                child: const Icon(
-                  Icons.close,
-                  color: Colors.white,
-                ),
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 25.0),
+            child: Image.network(image),
+          ),
+          Positioned(
+            top: 40.0,
+            child: MaterialButton(
+              elevation: 16.0,
+              onPressed: () => Navigator.pop(context),
+              color: Colors.amber,
+              shape: const CircleBorder(),
+              child: const Icon(
+                Icons.close,
+                color: Colors.white,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

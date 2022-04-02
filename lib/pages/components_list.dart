@@ -50,6 +50,7 @@ class _ComponentListState extends State<ComponentList> {
                           itemBuilder: (context, index) {
                             Cpu cpu = snapshot.data![index];
                             return (OpenContainer(
+                              closedElevation: 8.0,
                               closedShape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18.0),
                               ),
