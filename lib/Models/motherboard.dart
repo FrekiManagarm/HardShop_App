@@ -10,26 +10,26 @@ String motherBoardToJson(List<MotherBoard> data) => json.encode(List<dynamic>.fr
 
 class MotherBoard {
     MotherBoard({
-        this.id,
-        this.image,
-        this.constructeur,
-        this.format,
-        this.frquenceMmoire,
-        this.description,
-        this.nom,
-        this.procoCompatible,
-        this.socket,
+        required this.id,
+        required this.image,
+        required this.constructeur,
+        required this.format,
+        required this.frquenceMmoire,
+        required this.description,
+        required this.nom,
+        required this.procoCompatible,
+        required this.socket,
     });
 
-    int? id;
-    String? image;
-    String? constructeur;
-    String? format;
-    String? frquenceMmoire;
-    String? description;
-    String? nom;
-    String? procoCompatible;
-    String? socket;
+    int id;
+    String image;
+    String constructeur;
+    String format;
+    String frquenceMmoire;
+    String description;
+    String nom;
+    String procoCompatible;
+    String socket;
 
     factory MotherBoard.fromJson(Map<String, dynamic> json) => MotherBoard(
         id: json["id"],

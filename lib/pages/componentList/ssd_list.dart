@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hardshopapp/components/background.dart';
+import 'package:hardshopapp/components/header.dart';
 
 class SSDList extends StatefulWidget {
   const SSDList({ Key? key }) : super(key: key);
@@ -10,8 +12,16 @@ class SSDList extends StatefulWidget {
 class _SSDListState extends State<SSDList> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      body: Center(
+        child: Background(
+          child: Column(
+            children: [
+              Header(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

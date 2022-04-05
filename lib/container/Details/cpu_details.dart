@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 class CPUDetails extends StatelessWidget {
   const CPUDetails(
@@ -37,23 +38,47 @@ class CPUDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 25.0),
-            child: Image.network(image),
-          ),
-          Positioned(
-            top: 40.0,
-            child: MaterialButton(
-              elevation: 16.0,
-              onPressed: () => Navigator.pop(context),
-              color: Colors.amber,
-              shape: const CircleBorder(),
-              child: const Icon(
-                Icons.close,
-                color: Colors.white,
+          Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 25.0, right: 8, left: 8),
+                child: ClipRRect(
+                  child: Image.network(image),
+                  borderRadius: BorderRadius.circular(16),
+                ),
               ),
+              Positioned(
+                top: 40.0,
+                child: MaterialButton(
+                  elevation: 16.0,
+                  onPressed: () => Get.back(),
+                  color: Colors.amber,
+                  shape: const CircleBorder(),
+                  child: const Icon(
+                    Icons.close,
+                    // color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          const Text(
+            "Nom : ",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16.0,
+            ),
+          ),
+          Text(
+            nom,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 32.0,
             ),
           ),
         ],

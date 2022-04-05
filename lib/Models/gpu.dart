@@ -4,32 +4,32 @@
 
 import 'dart:convert';
 
-List<Gpu> cpuFromJson(String str) => List<Gpu>.from(json.decode(str).map((x) => Gpu.fromJson(x)));
+List<Gpu> gpuFromJson(String str) => List<Gpu>.from(json.decode(str).map((x) => Gpu.fromJson(x)));
 
-String cpuToJson(List<Gpu> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String gpuToJson(List<Gpu> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Gpu {
     Gpu({
-        this.id,
-        this.image,
-        this.nom,
-        this.frequence,
-        this.frequenceBoost,
-        this.nbCoeur,
-        this.nbVentilateur,
-        this.nbVideoOutput,
-        this.description,
+        required this.id,
+        required this.image,
+        required this.nom,
+        required this.frequence,
+        required this.frequenceBoost,
+        required this.nbCoeur,
+        required this.nbVentilateur,
+        required this.nbVideoOutput,
+        required this.description,
     });
 
-    int? id;
-    String? image;
-    String? nom;
-    String? frequence;
-    String? frequenceBoost;
-    int? nbCoeur;
-    int? nbVentilateur;
-    int? nbVideoOutput;
-    String? description;
+    int id;
+    String image;
+    String nom;
+    String frequence;
+    String frequenceBoost;
+    int nbCoeur;
+    int nbVentilateur;
+    int nbVideoOutput;
+    String description;
 
     factory Gpu.fromJson(Map<String, dynamic> json) => Gpu(
         id: json["id"],
@@ -38,7 +38,7 @@ class Gpu {
         frequence: json["frequence"],
         frequenceBoost: json["frequence_boost"],
         nbCoeur: json["nb_coeur"],
-        nbVentilateur: json["nb_ventilateur"],
+        nbVentilateur: json["nb_ventilateurs"],
         nbVideoOutput: json["nb_video_output"],
         description: json["description"],
     );
@@ -50,7 +50,7 @@ class Gpu {
         "frequence": frequence,
         "frequence_boost": frequenceBoost,
         "nb_coeur": nbCoeur,
-        "nb_ventilateur": nbVentilateur,
+        "nb_ventilateurs": nbVentilateur,
         "nb_video_output": nbVideoOutput,
         "description": description,
     };

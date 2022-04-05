@@ -10,24 +10,24 @@ String ramToJson(List<Ram> data) => json.encode(List<dynamic>.from(data.map((x) 
 
 class Ram {
     Ram({
-        this.id,
-        this.image,
-        this.capacit,
-        this.ramInterface,
-        this.latence,
-        this.description,
-        this.nom,
-        this.quantit,
+        required this.id,
+        required this.image,
+        required this.capacit,
+        required this.ramInterface,
+        required this.latence,
+        required this.description,
+        required this.nom,
+        required this.quantit,
     });
 
-    int? id;
-    String? image;
-    String? capacit;
-    String? ramInterface;
-    String? latence;
-    String? description;
-    String? nom;
-    int? quantit;
+    int id;
+    String image;
+    String capacit;
+    String ramInterface;
+    String latence;
+    String description;
+    String nom;
+    int quantit;
 
     factory Ram.fromJson(Map<String, dynamic> json) => Ram(
         id: json["id"],

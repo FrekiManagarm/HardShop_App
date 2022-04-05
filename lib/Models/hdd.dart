@@ -10,30 +10,30 @@ String hddToJson(List<Hdd> data) => json.encode(List<dynamic>.from(data.map((x) 
 
 class Hdd {
     Hdd({
-        this.id,
-        this.image,
-        this.rpm,
-        this.capacit,
-        this.format,
-        this.hddInterface,
-        this.description,
-        this.marque,
-        this.mmoireCache,
-        this.nom,
-        this.transfert,
+        required this.id,
+        required this.image,
+        required this.rpm,
+        required this.capacit,
+        required this.format,
+        required this.hddInterface,
+        required this.description,
+        required this.marque,
+        required this.mmoireCache,
+        required this.nom,
+        required this.transfert,
     });
 
-    int? id;
-    String? image;
-    int? rpm;
-    int? capacit;
-    String? format;
-    String? hddInterface;
-    String? description;
-    String? marque;
-    int? mmoireCache;
-    String? nom;
-    String? transfert;
+    int id;
+    String image;
+    int rpm;
+    int capacit;
+    String format;
+    String hddInterface;
+    String description;
+    String marque;
+    int mmoireCache;
+    String nom;
+    String transfert;
 
     factory Hdd.fromJson(Map<String, dynamic> json) => Hdd(
         id: json["id"],

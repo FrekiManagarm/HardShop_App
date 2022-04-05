@@ -10,28 +10,28 @@ String coolingToJson(List<Cooling> data) => json.encode(List<dynamic>.from(data.
 
 class Cooling {
     Cooling({
-        this.id,
-        this.bruit,
-        this.format,
-        this.marque,
-        this.matriaux,
-        this.description,
-        this.nom,
-        this.socket,
-        this.type,
-        this.image,
+        required this.id,
+        required this.bruit,
+        required this.format,
+        required this.marque,
+        required this.matriaux,
+        required this.description,
+        required this.nom,
+        required this.socket,
+        required this.type,
+        required this.image,
     });
 
-    int? id;
-    String? bruit;
-    String? format;
-    String? marque;
-    String? matriaux;
-    String? description;
-    String? nom;
-    String? socket;
-    String? type;
-    String? image;
+    int id;
+    String bruit;
+    String format;
+    String marque;
+    String matriaux;
+    String description;
+    String nom;
+    String socket;
+    String type;
+    String image;
 
     factory Cooling.fromJson(Map<String, dynamic> json) => Cooling(
         id: json["id"],
