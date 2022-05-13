@@ -10,26 +10,26 @@ String psuToJson(List<Psu> data) => json.encode(List<dynamic>.from(data.map((x) 
 
 class Psu {
     Psu({
-        this.id,
-        this.image,
-        this.certif,
-        this.format,
-        this.description,
-        this.marque,
-        this.modulaire,
-        this.nom,
-        this.puissance,
+        required this.id,
+        required this.image,
+        required this.certif,
+        required this.format,
+        required this.description,
+        required this.marque,
+        required this.modulaire,
+        required this.nom,
+        required this.puissance,
     });
 
-    int? id;
-    String? image;
-    String? certif;
-    String? format;
-    String? description;
-    String? marque;
-    String? modulaire;
-    String? nom;
-    int? puissance;
+    int id;
+    String image;
+    String certif;
+    String format;
+    String description;
+    String marque;
+    String modulaire;
+    String nom;
+    int puissance;
 
     factory Psu.fromJson(Map<String, dynamic> json) => Psu(
         id: json["id"],

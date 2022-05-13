@@ -65,8 +65,9 @@ class RamDetails extends StatelessWidget {
               nom,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 16.0,
+                fontSize: 32,
               ),
+              textAlign: TextAlign.center,
             )
           ],
         ),

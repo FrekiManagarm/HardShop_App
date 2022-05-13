@@ -80,6 +80,7 @@ class CPUDetails extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 32.0,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),

@@ -10,30 +10,30 @@ String ssdToJson(List<Ssd> data) => json.encode(List<dynamic>.from(data.map((x) 
 
 class Ssd {
     Ssd({
-        this.id,
-        this.image,
-        this.capacit,
-        this.connectique,
-        this.format,
-        this.ssdInterface,
-        this.lecture,
-        this.ecriture,
-        this.description,
-        this.marque,
-        this.nom,
+        required this.id,
+        required this.image,
+        required this.capacit,
+        required this.connectique,
+        required this.format,
+        required this.ssdInterface,
+        required this.lecture,
+        required this.ecriture,
+        required this.description,
+        required this.marque,
+        required this.nom,
     });
 
-    int? id;
-    String? image;
-    int? capacit;
-    String? connectique;
-    String? format;
-    String? ssdInterface;
-    int? lecture;
-    int? ecriture;
-    String? description;
-    String? marque;
-    String? nom;
+    int id;
+    String image;
+    int capacit;
+    String connectique;
+    String format;
+    String ssdInterface;
+    int lecture;
+    int ecriture;
+    String description;
+    String marque;
+    String nom;
 
     factory Ssd.fromJson(Map<String, dynamic> json) => Ssd(
         id: json["id"],

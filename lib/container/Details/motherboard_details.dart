@@ -69,8 +69,9 @@ class MotherBoardDetails extends StatelessWidget {
               nom,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 16,
+                fontSize: 32,
               ),
+              textAlign: TextAlign.center,
             )
           ],
         ),

@@ -13,7 +13,6 @@ import 'package:hardshopapp/pages/componentList/ssd_list.dart';
 import 'package:hardshopapp/pages/components_list.dart';
 import 'package:hardshopapp/pages/configurator/home_config.dart';
 import 'package:hardshopapp/pages/dashboard/dashboard.dart';
-import 'package:hardshopapp/pages/home_screen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -4,36 +4,38 @@
 
 import 'dart:convert';
 
-List<Boitier> boitierFromJson(String str) => List<Boitier>.from(json.decode(str).map((x) => Boitier.fromJson(x)));
+List<Boitier> boitierFromJson(String str) =>
+    List<Boitier>.from(json.decode(str).map((x) => Boitier.fromJson(x)));
 
-String boitierToJson(List<Boitier> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String boitierToJson(List<Boitier> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Boitier {
-    Boitier({
-        this.id,
-        this.image,
-        this.rgb,
-        this.alimInclus,
-        this.couleur,
-        this.description,
-        this.facadeLaterale,
-        this.format,
-        this.nom,
-        this.ventilateur,
-    });
+  Boitier({
+    required this.id,
+    required this.image,
+    required this.rgb,
+    required this.alimInclus,
+    required this.couleur,
+    required this.description,
+    required this.facadeLaterale,
+    required this.format,
+    required this.nom,
+    required this.ventilateur,
+  });
 
-    int? id;
-    String? image;
-    int? rgb;
-    int? alimInclus;
-    String? couleur;
-    String? description;
-    String? facadeLaterale;
-    String? format;
-    String? nom;
-    int? ventilateur;
+  int id;
+  String image;
+  int rgb;
+  int alimInclus;
+  String couleur;
+  String description;
+  String facadeLaterale;
+  String format;
+  String nom;
+  int ventilateur;
 
-    factory Boitier.fromJson(Map<String, dynamic> json) => Boitier(
+  factory Boitier.fromJson(Map<String, dynamic> json) => Boitier(
         id: json["id"],
         image: json["image"],
         rgb: json["RGB"],
@@ -44,9 +46,9 @@ class Boitier {
         format: json["format"],
         nom: json["nom"],
         ventilateur: json["ventilateur"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "image": image,
         "RGB": rgb,
@@ -57,6 +59,5 @@ class Boitier {
         "format": format,
         "nom": nom,
         "ventilateur": ventilateur,
-    };
+      };
 }
-

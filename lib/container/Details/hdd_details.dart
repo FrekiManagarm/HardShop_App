@@ -74,9 +74,10 @@ class HDDDetails extends StatelessWidget {
             Text(
               nom,
               style: const TextStyle(
-                fontSize: 16,
+                fontSize: 32,
                 fontWeight: FontWeight.bold,
               ),
+              textAlign: TextAlign.center,
             )
           ],
         ),
